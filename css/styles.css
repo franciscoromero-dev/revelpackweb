@@ -168,7 +168,7 @@ button{cursor:pointer;border:none;background:none;font:inherit;}
 }
 .hero-bg{
   position:absolute;inset:0;
-  background-image:url('../images/HERO.png');
+  background-image:url('../images/HERO2.png');
   background-size:cover;background-position:center;opacity:1;
 }
 .hero-inner{
@@ -202,11 +202,7 @@ button{cursor:pointer;border:none;background:none;font:inherit;}
   display:flex;align-items:center;gap:clamp(10px,2vw,16px);
   flex-wrap:wrap;margin-bottom:clamp(32px,6vw,64px);
 }
-.hero-social-proof{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.hero-stars{display:flex;gap:3px;}
-.hero-stars span{color:var(--orange);font-size:clamp(0.9rem, 0.88rem + 0.15vw, 1.1rem);}
-.hero-review-text{font-size:clamp(0.75rem, 0.73rem + 0.12vw, 0.85rem);color:rgba(255,255,255,0.55);}
-.hero-review-text strong{color:var(--white);}
+
 
 /* ---- SECCIONES ---- */
 section{padding:var(--space-xl) var(--px);}
@@ -444,6 +440,43 @@ section{padding:var(--space-xl) var(--px);}
 .reveal.visible{opacity:1;transform:none;}
 
 /* ---- RESPONSIVE ---- */
+@media(max-width:768px){
+  .hero{
+    min-height:clamp(360px,70vh,600px);
+    align-items:flex-start;
+  }
+  .hero-bg{
+    background-position:center top;
+    background-size:cover;
+    width:100%;
+    max-width:100%;
+    height:auto;
+  }
+  .hero-inner{
+    padding:clamp(40px,8vw,64px) var(--px) clamp(32px,6vw,48px);
+    text-align:left;
+    width:100%;
+  }
+  .hero h1{
+    font-size:clamp(1.75rem,7vw,2.8rem);
+    max-width:100%;
+  }
+  .hero p{
+    max-width:100%;
+    font-size:clamp(0.9rem,3.5vw,1rem);
+  }
+  .hero-badge{
+    font-size:clamp(0.55rem,2.5vw,0.65rem);
+    margin-bottom:clamp(12px,2.5vw,20px);
+  }
+  .hero-actions{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:clamp(8px,2vw,12px);
+    margin-bottom:clamp(20px,4vw,36px);
+  }
+  .hero-actions .btn{width:100%;justify-content:center;}
+}
 @media(max-width:1024px){
   .process-steps{grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,32px);}
   .process-steps::before{display:none;}
@@ -461,8 +494,6 @@ section{padding:var(--space-xl) var(--px);}
 @media(max-width:480px){
   .process-steps{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr;}
-  .hero-actions{flex-direction:column;align-items:flex-start;}
-  .hero-actions .btn{width:100%;}
   .cta-actions{flex-direction:column;}
   .cta-actions .btn{width:100%;justify-content:center;}
 }
