@@ -278,7 +278,7 @@ section{padding:var(--space-xl) var(--px);}
 }
 .product-card-body{padding:clamp(14px,2vw,20px);}
 .product-card-body h3{font-family:var(--font-display);font-size:clamp(0.83rem, 0.8rem + 0.18vw, 0.95rem);font-weight:700;margin-bottom:6px;}
-.product-card-body p{font-size:clamp(0.73rem, 0.71rem + 0.12vw, 0.82rem);color:var(--gray-600);line-height:1.5;}
+.product-card-body p{font-size:clamp(0.73rem, 0.71rem + 0.12vw, 0.82rem);color:var(--gray-600);line-height:1.5;text-align:justify;}
 .products-more{text-align:center;margin-top:clamp(32px,5vw,48px);}
 .products-more p{color:var(--gray-600);margin-bottom:20px;}
 
