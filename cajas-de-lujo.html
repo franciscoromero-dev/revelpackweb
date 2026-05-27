@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cajas de Lujo | RevelPack®</title>
+  <meta name="description" content="Cajas de lujo hechas a mano, forradas en materiales premium. Fabricamos desde 10 piezas para marcas que buscan exclusividad." />
+  <link rel="canonical" href="https://revelpack.com/cajas-de-lujo.html" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ── Carousel ── */
+    .carousel-wrapper {
+      padding: clamp(24px, 4vw, 48px) 0;
+      background: #fff;
+    }
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      overflow: hidden;
+      background: #111;
+      border-radius: 10px;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      height: 350px;
+      flex-shrink: 0;
+      background: #111;
+    }
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    @media (max-width: 767px) {
+      .carousel {
+        max-width: 100%;
+        border-radius: 0;
+      }
+      .carousel-slide {
+        height: 220px;
+      }
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 10;
+    }
+    .carousel-btn:hover { background: rgba(0,0,0,0.7); }
+    .carousel-btn.prev { left: 16px; }
+    .carousel-btn.next { right: 16px; }
+    .carousel-dots {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s;
+    }
+    .carousel-dot.active { background: #fff; }
+
+    /* ── Description section ── */
+    .product-detail {
+      padding: clamp(48px, 7vw, 80px) 0;
+    }
+    .product-detail .container {
+      max-width: 760px;
+      padding-left: clamp(16px, 5vw, 24px);
+      padding-right: clamp(16px, 5vw, 24px);
+    }
+    .product-detail h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 24px;
+    }
+    .product-detail p {
+      font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+      color: var(--gray-600);
+      line-height: 1.75;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+    .product-detail .cta-wrap {
+      margin-top: 36px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  Reducimos los tiempos de entrega sin sacrificar calidad — <a href="index.html#contacto">Conoce cómo lo hacemos</a>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo-img"><img src="images/Logo_Revel_Pack2.png" alt="RevelPack" /></a>
+
+    <nav>
+      <ul class="main-nav">
+
+        <li>
+          <a href="index.html#productos">Productos ▾</a>
+          <div class="mega-menu cols-2">
+            <div class="mega-menu-group">
+              <h4>Cajas</h4>
+              <ul>
+                <li><a href="index.html#productos">Cajas Plegables (Folding Carton)</a></li>
+                <li><a href="index.html#productos">Cajas Rígidas (Rígid Box)</a></li>
+                <li><a href="index.html#productos">Cajas Corrugadas</a></li>
+                <li><a href="index.html#productos">Estuches de Presentación</a></li>
+                <li><a href="index.html#productos" style="color: #ff6b00;">Cajas con luz <span style="display:inline-block;background:#ff6b00;color:#fff;font-size:0.65rem;font-weight:700;padding:1px 6px;border-radius:3px;vertical-align:middle;margin-left:4px;line-height:1.4;">Nuevo</span></a></li>
+              </ul>
+            </div>
+            <div class="mega-menu-group">
+              <h4>Complementos</h4>
+              <ul>
+                <li><a href="index.html#productos">Insertos y Separadores</a></li>
+                <li><a href="index.html#productos">Etiquetas y Stickers</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <a href="index.html#sectores">Sectores ▾</a>
+          <div class="mega-menu cols-3">
+            <div class="mega-menu-group">
+              <h4>Industrias</h4>
+              <ul>
+                <li><a href="index.html#sectores">Corporativo y Empresarial</a></li>
+                <li><a href="index.html#sectores">Retail y Puntos de Venta</a></li>
+                <li><a href="index.html#sectores">Joyería y Accesorios</a></li>
+              </ul>
+            </div>
+            <div class="mega-menu-group">
+              <h4>Ocasiones</h4>
+              <ul>
+                <li><a href="index.html#sectores">Regalos Corporativos</a></li>
+                <li><a href="index.html#sectores">Lanzamientos de Producto</a></li>
+                <li><a href="index.html#sectores">Eventos y Congresos</a></li>
+              </ul>
+            </div>
+            <div class="mega-menu-group">
+              <h4>Especialidades</h4>
+              <ul>
+                <li><a href="index.html#sectores">Cosméticos y Belleza</a></li>
+                <li><a href="index.html#sectores">Tecnología y Electrónica</a></li>
+                <li><a href="index.html#sectores">Alimentos y Bebidas</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <a href="index.html#servicios">Servicios ▾</a>
+          <div class="mega-menu cols-2">
+            <div class="mega-menu-group">
+              <h4>Diseño</h4>
+              <ul>
+                <li><a href="index.html#servicios">Diseño Estructural</a></li>
+                <li><a href="index.html#servicios">Diseño de Arte y Acabados</a></li>
+                <li><a href="index.html#servicios">Prototipos y Muestras</a></li>
+              </ul>
+            </div>
+            <div class="mega-menu-group">
+              <h4>Producción</h4>
+              <ul>
+                <li><a href="index.html#servicios">Fabricación Gestionada</a></li>
+                <li><a href="index.html#servicios">Control de Calidad</a></li>
+                <li><a href="index.html#servicios">Logística y Entrega</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <li><a href="index.html#nosotros">¿Por qué RevelPack?</a></li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+
+      </ul>
+    </nav>
+
+    <div class="header-cta">
+      <a href="index.html#contacto" class="btn btn-primary">Solicitar Cotización</a>
+    </div>
+
+    <button class="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" aria-label="Menú móvil">
+  <div class="mobile-nav-header">
+    <a href="/" class="logo-img"><img src="images/Logo_Revel_Pack2.png" alt="RevelPack" /></a>
+    <button class="mobile-nav-close" aria-label="Cerrar menú">✕</button>
+  </div>
+  <ul>
+    <li><a href="index.html#productos">Productos</a></li>
+    <li><a href="index.html#sectores">Sectores</a></li>
+    <li><a href="index.html#servicios">Servicios</a></li>
+    <li><a href="index.html#nosotros">¿Por qué RevelPack?</a></li>
+    <li><a href="index.html#contacto">Contacto</a></li>
+  </ul>
+  <a href="index.html#contacto" class="btn btn-primary btn-lg">Solicitar Cotización</a>
+</nav>
+
+<!-- HERO CAROUSEL -->
+<div class="carousel-wrapper">
+<div class="carousel" aria-label="Galería Cajas de Lujo">
+  <div class="carousel-track" id="carouselTrack">
+    <div class="carousel-slide">
+      <img src="images/Cajas_de_lujo.png" alt="Cajas de Lujo" />
+    </div>
+    <div class="carousel-slide">
+      <img src="images/comex.png" alt="Cajas de Lujo — proyecto Comex" />
+    </div>
+    <div class="carousel-slide">
+      <img src="images/porche.png" alt="Cajas de Lujo — proyecto Porche" />
+    </div>
+  </div>
+
+  <button class="carousel-btn prev" id="prevBtn" aria-label="Imagen anterior">&#8592;</button>
+  <button class="carousel-btn next" id="nextBtn" aria-label="Imagen siguiente">&#8594;</button>
+
+  <div class="carousel-dots" id="carouselDots">
+    <button class="carousel-dot active" aria-label="Ir a imagen 1"></button>
+    <button class="carousel-dot" aria-label="Ir a imagen 2"></button>
+    <button class="carousel-dot" aria-label="Ir a imagen 3"></button>
+  </div>
+</div>
+</div>
+
+<!-- DESCRIPTION -->
+<section class="product-detail">
+  <div class="container">
+    <h1>Cajas de Lujo</h1>
+    <p>Creamos cajas de lujo hechas a mano que transforman la presentación de tu producto en una experiencia inolvidable. Elaboradas con curpieles premium y materiales texturizados de alta gama, cada pieza combina elegancia, precisión y exclusividad.</p>
+    <p>Diseñamos interiores totalmente personalizados sobre demanda, forrados en terciopelo para brindar una sensación sofisticada y un acabado impecable. Desde joyería y relojería hasta productos premium y ediciones especiales, cada caja se adapta a la identidad de tu marca.</p>
+    <p>Nuestra diferencia está en la exclusividad accesible: producimos desde solo 10 piezas, permitiéndote crear empaques de lujo sin requerir grandes volúmenes.</p>
+    <div class="cta-wrap">
+      <a href="https://wa.me/525555097063?text=Hola%2C%20me%20interesa%20una%20cotización%20de%20Cajas%20de%20Lujo" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">Solicitar Cotización</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="logo-img"><img src="images/Logo_Revel_Pack2.png" alt="RevelPack" /></a>
+      <p>Tu socio confiable en fabricación de cajas y estuches personalizados para la industria promocional. Calidad, diseño y puntualidad en cada pedido.</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/revel.pack" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">IG</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Soluciones</h4>
+      <ul>
+        <li><a href="index.html#productos">Productos</a></li>
+        <li><a href="index.html#sectores">Sectores</a></li>
+        <li><a href="index.html#servicios">Servicios</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="index.html#nosotros">¿Por qué RevelPack?</a></li>
+        <li><a href="index.html#contacto">Contáctanos</a></li>
+        <li><a href="index.html#contacto">Solicitar Cotización</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Recursos</h4>
+      <ul>
+        <li><a href="#">Preguntas Frecuentes</a></li>
+        <li><a href="#">Política de Privacidad</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 RevelPack. Todos los derechos reservados.</p>
+    <p>Diseñado y fabricado con ❤️ para la industria promocional.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  (function () {
+    const track = document.getElementById('carouselTrack');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const total = dots.length;
+    let current = 0;
+    let timer;
+
+    function goTo(index) {
+      current = (index + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function startAuto() {
+      timer = setInterval(function () { goTo(current + 1); }, 5000);
+    }
+
+    function resetAuto() {
+      clearInterval(timer);
+      startAuto();
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', function () {
+      goTo(current - 1); resetAuto();
+    });
+    document.getElementById('nextBtn').addEventListener('click', function () {
+      goTo(current + 1); resetAuto();
+    });
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { goTo(i); resetAuto(); });
+    });
+
+    startAuto();
+  })();
+</script>
+</body>
+</html>
