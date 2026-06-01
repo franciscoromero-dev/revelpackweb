@@ -10,7 +10,7 @@
   <style>
     /* ── Carousel ── */
     .carousel-wrapper {
-      padding: clamp(16px, 4vw, 48px) 0;
+      padding: clamp(24px, 4vw, 48px) 0;
       background: #fff;
     }
     .carousel {
@@ -28,9 +28,9 @@
     }
     .carousel-slide {
       min-width: 100%;
+      height: 350px;
       flex-shrink: 0;
       background: #fff;
-      aspect-ratio: 4 / 3;
     }
     .carousel-slide img {
       width: 100%;
@@ -38,29 +38,36 @@
       object-fit: contain;
       display: block;
     }
+    @media (max-width: 767px) {
+      .carousel {
+        max-width: 100%;
+        border-radius: 0;
+      }
+      .carousel-slide {
+        height: 220px;
+      }
+    }
     .carousel-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(0,0,0,0.35);
+      background: rgba(0,0,0,0.45);
       color: #fff;
       border: none;
       cursor: pointer;
-      width: clamp(36px, 5vw, 48px);
-      height: clamp(36px, 5vw, 48px);
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
-      font-size: clamp(1rem, 1.5vw, 1.3rem);
+      font-size: 1.3rem;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: background 0.2s;
       z-index: 10;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
     }
-    .carousel-btn:hover { background: rgba(0,0,0,0.65); }
-    .carousel-btn.prev { left: clamp(8px, 2vw, 16px); }
-    .carousel-btn.next { right: clamp(8px, 2vw, 16px); }
+    .carousel-btn:hover { background: rgba(0,0,0,0.7); }
+    .carousel-btn.prev { left: 16px; }
+    .carousel-btn.next { right: 16px; }
     .carousel-dots {
       position: absolute;
       bottom: 14px;
@@ -74,18 +81,13 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: #ccc;
+      background: rgba(255,255,255,0.5);
       border: none;
       cursor: pointer;
       padding: 0;
       transition: background 0.2s;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
     }
-    .carousel-dot.active { background: var(--orange, #F36F32); }
-    @media (max-width: 767px) {
-      .carousel { border-radius: 0; }
-    }
+    .carousel-dot.active { background: #fff; }
 
     /* ── Description section ── */
     .product-detail {
