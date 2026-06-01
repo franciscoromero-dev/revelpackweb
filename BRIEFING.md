@@ -103,20 +103,21 @@ revelpackweb/
 - **Mayo 2025** — Carrusel implementado en `cajas-de-lujo.html` con JS inline (no en main.js) para mantener la lógica autocontenida en la página de producto.
 - **Mayo 2025** — Algunas imágenes del catálogo aún son de PakFactory (placeholder). Se deben reemplazar con imágenes propias.
 - **Mayo 2025** — `vercel.json` configurado con headers de seguridad (X-Frame-Options, X-XSS-Protection) y cache agresivo para CSS/JS.
+- **31 mayo 2025** — Carrusel migrado de CSS transforms a scroll-snap nativo. Razón: iOS Safari no renderiza imágenes off-screen dentro de contenedores con `overflow:hidden` + transforms. Scroll-snap lo maneja el browser directamente y resuelve el bug. Añade swipe táctil gratis.
 
 ---
 
 ## Problemas resueltos
 
--
+- **31 mayo 2025 — Imágenes en blanco en iOS Safari (carrusel):** Las slides 2 y 3 del carrusel aparecían en blanco en móvil. Causa: iOS Safari no decodifica imágenes fuera del viewport cuando el mecanismo es CSS transform en el track. Solución: migrar a `scroll-snap-type: x mandatory` en el track con `overflow-x: auto`. Las imágenes se renderizan todas desde el inicio y el browser gestiona el snapping nativamente.
 
 ---
 
 ## Estado actual
 
 **Última sesión:** 31 mayo 2025
-**Qué se completó:** Documentación inicial del BRIEFING.md a partir del estado real del proyecto
-**Cómo está el proyecto ahora:** Landing principal funcional con 8 productos en catálogo. Página de detalle `cajas-de-lujo.html` con carrusel de 3 imágenes (Cajas de Lujo, Comex, Porche). Sección ¿Por qué RevelPack? referenciada en nav pero sin sección implementada en el HTML. Testimonios y FAQ presentes.
+**Qué se completó:** Documentación inicial del proyecto + fix completo del carrusel en iOS Safari
+**Cómo está el proyecto ahora:** Landing principal funcional con 8 productos en catálogo. Página de detalle `cajas-de-lujo.html` con carrusel de 3 imágenes funcionando en desktop y móvil (iOS incluido), con swipe táctil y dots visibles. Sección ¿Por qué RevelPack? referenciada en nav pero sin sección implementada en el HTML. Testimonios y FAQ presentes.
 
 ---
 
