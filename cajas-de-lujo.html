@@ -18,19 +18,22 @@
       width: 100%;
       max-width: 900px;
       margin: 0 auto;
-      overflow: hidden;
       background: #fff;
       border-radius: 10px;
     }
     .carousel-track {
       display: flex;
-      transition: transform 0.5s ease;
-      will-change: transform;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      border-radius: 10px;
     }
+    .carousel-track::-webkit-scrollbar { display: none; }
     .carousel-slide {
-      min-width: 100%;
+      flex: 0 0 100%;
+      scroll-snap-align: start;
       height: 350px;
-      flex-shrink: 0;
       background: #fff;
     }
     .carousel-slide img {
@@ -38,17 +41,6 @@
       height: 100%;
       object-fit: contain;
       display: block;
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0);
-    }
-    @media (max-width: 767px) {
-      .carousel {
-        max-width: 100%;
-        border-radius: 0;
-      }
-      .carousel-slide {
-        height: 220px;
-      }
     }
     .carousel-btn {
       position: absolute;
@@ -67,6 +59,7 @@
       justify-content: center;
       transition: background 0.2s;
       z-index: 10;
+      touch-action: manipulation;
     }
     .carousel-btn:hover { background: rgba(0,0,0,0.7); }
     .carousel-btn.prev { left: 16px; }
@@ -84,13 +77,19 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.5);
+      background: #ccc;
       border: none;
       cursor: pointer;
       padding: 0;
       transition: background 0.2s;
+      touch-action: manipulation;
     }
-    .carousel-dot.active { background: #fff; }
+    .carousel-dot.active { background: #F36F32; }
+    @media (max-width: 767px) {
+      .carousel { border-radius: 0; }
+      .carousel-track { border-radius: 0; }
+      .carousel-slide { height: 220px; }
+    }
 
     /* ── Description section ── */
     .product-detail {
@@ -329,10 +328,11 @@
     const total = dots.length;
     let current = 0;
     let timer;
+    let scrollTimer;
 
     function goTo(index) {
       current = (index + total) % total;
-      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      track.scrollTo({ left: current * track.offsetWidth, behavior: 'smooth' });
       dots.forEach((d, i) => d.classList.toggle('active', i === current));
     }
 
@@ -344,6 +344,19 @@
       clearInterval(timer);
       startAuto();
     }
+
+    // Sincroniza dots cuando el usuario desliza con el dedo
+    track.addEventListener('scroll', function () {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function () {
+        const snapped = Math.round(track.scrollLeft / track.offsetWidth);
+        if (snapped !== current) {
+          current = snapped;
+          dots.forEach((d, i) => d.classList.toggle('active', i === current));
+          resetAuto();
+        }
+      }, 100);
+    });
 
     document.getElementById('prevBtn').addEventListener('click', function () {
       goTo(current - 1); resetAuto();
