@@ -198,6 +198,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 (async () => {
   console.log('[sync-catalog] Iniciando —', new Date().toISOString());
+  console.log('[sync-catalog] PROMOOP_TOKEN:', process.env.PROMOOP_TOKEN ? 'definido (' + process.env.PROMOOP_TOKEN.slice(0,20) + '...)' : 'NO DEFINIDO');
 
   try {
     const token      = await login();
