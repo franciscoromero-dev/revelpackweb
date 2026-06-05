@@ -1,5 +1,9 @@
 {
+  "functions": {
+    "api/sync-catalog.js": { "maxDuration": 900 }
+  },
   "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/(.*)", "destination": "/$1" }
   ],
   "headers": [

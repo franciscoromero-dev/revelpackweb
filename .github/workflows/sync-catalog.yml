@@ -1,0 +1,29 @@
+name: Sync Catalog
+
+on:
+  schedule:
+    - cron: '0 9 * * *'   # 09:00 UTC = 03:00 Ciudad de México
+  workflow_dispatch:        # permite lanzarlo a mano desde GitHub Actions
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20     # 20 páginas × 40 s delay ≈ 14 min mínimo
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run catalog sync
+        env:
+          BLOB_READ_WRITE_TOKEN: ${{ secrets.BLOB_READ_WRITE_TOKEN }}
+          PROMOOP_EMAIL:         ${{ secrets.PROMOOP_EMAIL }}
+          PROMOOP_PASSWORD:      ${{ secrets.PROMOOP_PASSWORD }}
+        run: node scripts/sync-catalog.js
