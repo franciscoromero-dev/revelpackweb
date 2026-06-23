@@ -118,9 +118,9 @@ revelpackweb/
 
 ## Estado actual
 
-**Última sesión:** 5 junio 2025
-**Qué se completó:** Backend completo para RevelKit — sync de catálogo PromoOpcion → Vercel Blob vía GitHub Actions
-**Cómo está el proyecto ahora:** Landing principal funcional. Backend RevelKit construido y en repo. El workflow corre diario a las 09:00 UTC. El código es correcto y está pusheado. Pendiente única: verificar ejecución real una vez que se resetee el rate limit de PromoOpcion (100 req/hora).
+**Última sesión:** 23 junio 2026
+**Qué se completó:** Sync Catalog reparado end-to-end — `PROMOOP_TOKEN` eliminado del workflow y de los secrets de GitHub. Sync Catalog #23 verificado: corrió exitosamente en 13m 14s con login email/password.
+**Cómo está el proyecto ahora:** Landing principal funcional. Backend RevelKit operativo y sincronizando correctamente. Único problema abierto: el catálogo no carga en el frontend de RevelKit — pendiente de investigar en próxima sesión.
 
 **Archivos del backend:**
 - `scripts/sync-catalog.js` — script standalone que pagina PromoOpcion (20 págs, 40 s delay), normaliza y sube `catalog.json` a Vercel Blob
@@ -132,11 +132,19 @@ revelpackweb/
 
 ---
 
+## Diagnóstico resuelto — Sync Catalog roto (2026-06-18 → 2026-06-23)
+
+- **Causa raíz:** `PROMOOP_TOKEN` expirado → workflow fallaba con HTTP 400 desde el 6 de junio.
+- **Fix aplicado:** eliminada la línea `PROMOOP_TOKEN` del `env:` en `.github/workflows/sync-catalog.yml` (commit `ab96cbf`). `PROMOOP_TOKEN` también eliminado de los secrets de GitHub.
+- **Verificación:** Sync Catalog #23 corrió exitosamente en 13m 14s con login email/password. `catalog.json` actualizado en Vercel Blob.
+- **Problema separado pendiente:** el catálogo no renderiza en el frontend de RevelKit — causa aún sin investigar (ver Pendientes).
+
+---
+
 ## Pendientes
 
 **RevelKit backend (próxima sesión):**
-- [ ] Correr el workflow manualmente: GitHub Actions → Sync Catalog → Run workflow
-- [ ] Confirmar que `catalog.json` se guarda en Vercel Blob (revisar el log de Actions y el dashboard de Blob)
+- [ ] Investigar por qué el catálogo no carga en el frontend de RevelKit — revisar consola del navegador y código de renderizado en `ui.js`
 
 **RevelPack landing:**
 - [ ] Reemplazar imágenes de PakFactory con imágenes propias (Cajas Plegables, Cajas Corrugadas, Insertos)
