@@ -26,5 +26,4 @@ jobs:
           BLOB_READ_WRITE_TOKEN: ${{ secrets.BLOB_READ_WRITE_TOKEN }}
           PROMOOP_EMAIL:         ${{ secrets.PROMOOP_EMAIL }}
           PROMOOP_PASSWORD:      ${{ secrets.PROMOOP_PASSWORD }}
-          PROMOOP_TOKEN:         ${{ secrets.PROMOOP_TOKEN }}
         run: node scripts/sync-catalog.js
